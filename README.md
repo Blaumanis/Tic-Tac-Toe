@@ -14,8 +14,8 @@ This is a solution to the [Tic Tac Toe challenge on Frontend Mentor](https://www
 
 ### Links
 
-- [Solution URL:] (https://github.com/Blaumanis/Tic-Tac-Toe)
-- [Live Site URL:] (https://tic-tac-toe-blauman.netlify.app/)
+- [Solution URL](https://github.com/Blaumanis/Tic-Tac-Toe)
+- [Live Site URL](https://tic-tac-toe-blauman.netlify.app/)
 
 ### Screenshot
 
