@@ -5,7 +5,7 @@ This is a solution to the [Tic Tac Toe challenge on Frontend Mentor](https://www
 ### Built with
 
 - Semantic HTML5 markup
-- CSS
+- CSS3
 - Flexbox
 - CSS Grid
 - Desktop-first workflow
