@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Square from './Square'
 import Modal from './Modal'
+import RestartModal from './RestartModal'
 
 // winning combinations
 const patterns = [
@@ -22,6 +23,7 @@ const Game = ({ pick, setIsGame }) => {
   const [result, setResult] = useState({ winner: 'none', state: 'none' })
   const [toggleSymbol, setToggleSymbol] = useState('X') // for toggling symbol which shows which players turn it is
   const [modal, setModal] = useState(false) // if true then game is finneshed and modal appears
+  const [restartModal, setRestartModal] = useState(false)
   // scores 
   const [yourScore, setYourScore] = useState(0)
   const [oponentScore, setOponentScore] = useState(0)
@@ -43,7 +45,7 @@ const Game = ({ pick, setIsGame }) => {
   }, [board]) // runs useEffect everytime the board updates
 
   useEffect(() => {
-    if (result.state != 'none') {
+    if (result.state !== 'none') {
       setModal(true)
       if (result.winner === pick && result.winner === 'X') {
         setResultText('YOU WON')
@@ -83,11 +85,6 @@ const Game = ({ pick, setIsGame }) => {
     }
   }, [result])
 
-  useEffect(()=>{
-    setTimeout(() => {
-      console.log('test');
-    }, 1000);
-  },[])
 
   // functions
   const chooseTile = (square, e) => {
@@ -106,7 +103,6 @@ const Game = ({ pick, setIsGame }) => {
             e.target.classList.add('o-tile')
             e.target.classList.remove('x-tile')
           }
-
           return player // add the current player symbol
         }
         return value // if these conditions are not true just return the value
@@ -143,10 +139,6 @@ const Game = ({ pick, setIsGame }) => {
     if (filled) {
       setResult({ winner: 'No One', state: 'Tie' })
     }
-  }
-
-  const runCPU = () => {
-
   }
 
   return (
@@ -190,7 +182,7 @@ const Game = ({ pick, setIsGame }) => {
           </svg>
           <h5>TURN</h5>
         </div>
-        <div onClick={() => setIsGame(false)} className='refresh-box'>
+        <div onClick={() => setRestartModal(true)} className='refresh-box'>
           <svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
             <path
               d='M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z'
@@ -213,7 +205,7 @@ const Game = ({ pick, setIsGame }) => {
       </div>
       <div className='bottom-row'>
         <div className='cpu-box'>
-          <h4>X {pick === 'X' ? '(YOU)' : '(CPU)'}</h4>
+          <h4>X {pick === 'X' ? '(YOU)' : '(P2)'}</h4>
           <h5>{pick === 'X' ? yourScore : oponentScore}</h5>
         </div>
         <div className='ties-box'>
@@ -221,7 +213,7 @@ const Game = ({ pick, setIsGame }) => {
           <h5>{tieScore}</h5>
         </div>
         <div className='you-box'>
-          <h4>O {pick === 'O' ? '(YOU)' : '(CPU)'}</h4>
+          <h4>O {pick === 'O' ? '(YOU)' : '(P2)'}</h4>
           <h5>{pick === 'O' ? yourScore : oponentScore}</h5>
         </div>
       </div>
@@ -240,6 +232,9 @@ const Game = ({ pick, setIsGame }) => {
       ) : (
         <></>
       )}
+      {restartModal ? (
+        <RestartModal setIsGame={setIsGame} setRestartModal={setRestartModal}/>
+      ): <></>}
     </motion.div>
   )
 }

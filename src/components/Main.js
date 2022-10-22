@@ -83,11 +83,12 @@ const Main = () => {
             <h5>remember: x goes first</h5>
           </div>
           <div className='button-container'>
-            <button onClick={() => setIsGame(true)}>
+            {/* <button onClick={() => setIsGame(true)}>
               new game (vs cpu)
-            </button>
+            </button> */}
             <button onClick={() => setIsGame(true)}>
-              new game (vs player)
+              {/* new game (vs player) */}
+              new game
             </button>
           </div>
         </motion.main>

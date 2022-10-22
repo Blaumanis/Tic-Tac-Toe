@@ -110,13 +110,16 @@ body {
   cursor: pointer;
   transition: var(--trans);
 }
-.button-container button:first-child {
+/* .button-container button:first-child {
   background-color: var(--yellow);
   box-shadow: inset 0 -0.4rem 0 #b77c0c;
-}
+} */
 .button-container button:last-child {
   background-color: var(--lightBlue);
   box-shadow: inset 0 -0.4rem 0 #1d716e;
+}
+.button-container button:last-child:hover{
+  background-color: hsl(178, 60%, 58%);;
 }
 
 /* ================== */
@@ -313,10 +316,17 @@ body {
   background-color: var(--grayBlue);
   box-shadow: inset 0 -0.4rem 0 #a4afb4;
 }
+.modal-container button:first-child:hover {
+  background-color: hsl(198, 23%, 82%);
+}
 .modal-container button:last-child {
   background-color: var(--yellow);
   box-shadow: inset 0 -0.4rem 0 #b77c0c;
 }
+.modal-container button:last-child:hover {
+  background-color: hsl(39, 88%, 68%);;
+}
+
 
 .modal-title h2.x-tile{
   color: var(--lightBlue);
