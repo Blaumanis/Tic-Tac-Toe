@@ -340,3 +340,71 @@ body {
 .modal-title svg .o-tile {
   fill: var(--yellow)
 }
+
+
+@media (max-width: 560px) {
+    .game-container {
+      width: 400px;
+    }
+    .modal-title {
+      font-size: 1.5rem;
+    }
+    .modal-title svg {
+      width: 30px;
+      height: 30px;
+    }
+    .tile {
+      height: 100px;
+      font-size: 2rem !important;
+    }
+    .turn-box {
+      width: 112px;
+      gap: 6px;
+    }
+    .bottom-row div {
+      width: 112px;
+    }
+    .board-container {
+      height: initial;
+    }
+    button {
+      font-size: 1rem !important;
+    }
+    .modal-container button {
+      padding: 1rem;
+    }
+    .button-container button {
+      padding: 1.35rem;
+    }
+}
+@media (max-width: 480px) {
+  .main-container {
+    width: 350px;
+  }
+  .modal-title {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 420px) {
+  .game-container {
+    width: 350px;
+  }
+  .turn-box {
+    width: 95.3px;
+  }
+  .bottom-row div {
+    width: 95.3px;
+  }
+  .modal-title {
+    font-size: 1rem;
+  }
+  .modal-title svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 380px) {
+  .main-container {
+    width: 330px;
+  }
+}
